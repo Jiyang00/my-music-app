@@ -3,6 +3,7 @@
 使用类模型的好处可以使代码重复利用，方便后续继续使用，ui对应的数据清晰，把ui需要的字段统一作为类的属性，根据属性就能很清楚的知道ui需要哪些数据
 */
 
+/**************************************************专辑列表**************************************************/
 /**
  * 专辑类模型
  * 
@@ -47,4 +48,23 @@ function filterSinger(singer) {
         return singer.singer_name;
     })
     return singerArray.join("/");
+}
+
+/**************************************************专辑新详**************************************************/
+/**
+ * 通过专辑详情数据创建专辑对象函数
+ * 
+ * @export
+ * @param {any} data 
+ * @returns 专辑对象
+ */
+export function createAlbumByDetail(data) {
+    return new Album(
+        data.id,
+        data.mid,
+        data.name,
+        `http://y.gtimg.cn/music/photo_new/T002R300x300M000${data.mid}.jpg?max_age=2592000`,
+        data.singername,
+        data.aDate
+    )
 }
